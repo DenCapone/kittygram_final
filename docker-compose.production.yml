@@ -12,19 +12,19 @@ services:
     volumes:
       - pg_data:/var/lib/postgresql/data
   backend:
-    image: dencapone/kittygram_final_backend
+    image: dencapone/kittygram_backend
     env_file: .env
     volumes:
       - static:/backend_static
       - media:/app/media
   frontend:
-    image: dencapone/kittygram_final_frontend
+    image: dencapone/kittygram_frontend
     env_file: .env
     command: cp -r /app/build/. /frontend_static/
     volumes:
       - static:/frontend_static
   gateway:
-    image: dencapone/kittygram_final_gateway
+    image: dencapone/kittygram_gateway
     env_file: .env
     volumes:
       - static:/staticfiles/
